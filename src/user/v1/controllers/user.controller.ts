@@ -15,7 +15,7 @@ async function signin(userData: CreateUserType): Promise<UserType> {
   return createdUser
 }
 
-async function updateUser(userData: CreateUserType, id: string): Promise<UserType| null> {
+async function updateUser(userData: CreateUserType, id: string): Promise<UserType| undefined> {
   const updatedUser = await updateUserAction(userData, id)
 
   return updatedUser

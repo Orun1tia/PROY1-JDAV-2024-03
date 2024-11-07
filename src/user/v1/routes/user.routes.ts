@@ -63,10 +63,20 @@ async function UpdateUser(request: Request, response: Response) {
     return response.status(400).json({
       message: "Missing fields"
     })
+  }else if (request.body.canUpdateUsers !== undefined || request.body.canUpdateBooks !== undefined || request.body.canCreateBooks !== undefined || request.body.canDeleteBooks !== undefined 
+    || request.body.canDeleteUsers !== undefined) {
+
+      return response.status(403).json({
+        message: "Unauthorized: Only authorized personnel can modify permissions directly in the database."
+      });
   }else{
 
     try {
       const user = await updateUser(request.body, request.query.id as string)
+
+      if (!user) {
+        return response.status(404).json({ message: "Invalid user ID" })
+      }
       
       response.status(200).json({
         message: "Data successfully changed",

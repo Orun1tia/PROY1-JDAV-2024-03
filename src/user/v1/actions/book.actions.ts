@@ -33,11 +33,11 @@ async function createBookAction(bookData: CreateBookType): Promise<BookType> {
   return results
 }
 
-async function updateBookAction(userData: CreateBookType, id: string): Promise<BookType | null> {
+async function updateBookAction(userData: CreateBookType, id: string): Promise<BookType | undefined> {
   const results = await BookModel.findByIdAndUpdate(id, userData, { new: true })
 
   if (!results) {
-    return null
+    return undefined
   }
 
   return results

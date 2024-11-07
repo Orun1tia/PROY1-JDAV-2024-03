@@ -67,6 +67,10 @@ async function UpdateBook(request: Request, response: Response) {
     try {
       const books = await updateBook(request.body, request.query.id as string)
 
+      if (!books) {
+        return response.status(404).json({ message: "Invalid book ID" })
+      }
+
       response.status(200).json({
         message: "Data successfully changed",
         books: books,

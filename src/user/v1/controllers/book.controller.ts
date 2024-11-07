@@ -19,7 +19,7 @@ async function createBook(bookData: CreateBookType): Promise<BookType> {
   return createdBook
 }
 
-async function updateBook(bookData: CreateBookType, id: string): Promise<BookType| null> {
+async function updateBook(bookData: CreateBookType, id: string): Promise<BookType| undefined> {
   const updatedUser = await updateBookAction(bookData, id)
 
   return updatedUser

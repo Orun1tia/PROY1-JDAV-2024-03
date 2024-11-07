@@ -39,7 +39,7 @@ async function signinAction(userData: CreateUserType): Promise<UserType> {
   return results
 }
 
-async function updateUserAction(userData: CreateUserType, id: string): Promise<UserType | null> {
+async function updateUserAction(userData: CreateUserType, id: string): Promise<UserType | undefined> {
   
   const updatedData: Partial<CreateUserType> = { ...userData }
 
@@ -52,7 +52,7 @@ async function updateUserAction(userData: CreateUserType, id: string): Promise<U
 
   const results = await UserModel.findByIdAndUpdate(id, updatedData, { new: true })
   if (!results) {
-    return null
+    return undefined
   }
 
   const { password: _, ...resultsNoPassword } = results.toObject()
