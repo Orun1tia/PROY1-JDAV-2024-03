@@ -1,5 +1,5 @@
-import {readBookAction, createBookAction, updateBookAction, deleteBookAction} from "../actions/book.actions"
-import { BookType } from "../models/book.model"
+import {readBookAction, createBookAction, updateBookAction, deleteBookAction} from "./book.actions"
+import { BookType } from "./book.model"
 import { CreateBookType } from "../types"
 
 // DECLARE CONTROLLER FUNCTIONS

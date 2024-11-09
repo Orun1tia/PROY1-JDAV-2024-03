@@ -1,5 +1,5 @@
-import { BookType } from "./models/book.model"
-import { UserType } from "./models/user.model"
+import { BookType } from "./Book/book.model"
+import { UserType } from "./User/user.model"
 
 
 export type CreateUserType = Omit<UserType, "_id">

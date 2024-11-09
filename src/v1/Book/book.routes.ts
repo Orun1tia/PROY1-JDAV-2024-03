@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express"
-import { createBook, deleteBook, readBooks, updateBook } from "../controllers/book.controller"
-import { authorizationMiddleware } from "../../../middleware/auth"
+import { createBook, deleteBook, readBooks, updateBook } from "./book.controller"
+import { authorizationMiddleware } from "../Middleware/auth"
 
 // INIT ROUTES
 const bookRoutes = Router()

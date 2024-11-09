@@ -1,7 +1,8 @@
 import bcrypt from 'bcrypt'
-import { UserModel, UserType } from "../models/user.model"
+import { UserModel, UserType } from "../User/user.model"
 import { CreateUserType } from "../types"
 import jwt from 'jsonwebtoken'
+import { BookModel } from '../Book/book.model';
 
 
 // DECLARE ACTION FUNCTION
@@ -54,6 +55,27 @@ async function updateUserAction(userData: CreateUserType, id: string): Promise<U
   if (!results) {
     return undefined
   }
+
+  if (userData.reservationHistory && userData.reservationHistory.length > 0) {
+    const latestReservation = userData.reservationHistory[userData.reservationHistory.length - 1]
+
+    const book = await BookModel.findOne({
+      name: latestReservation.bookName,
+      availability: true
+    })
+
+    if (book) {
+      book.reservationHistory.push({
+        userName: results.name,
+        reservationDate: latestReservation.reservationDate,
+        deliveryDate: latestReservation.deliveryDate
+      })
+
+      book.availability = false
+      await book.save()
+    }
+  }
+
 
   const { password: _, ...resultsNoPassword } = results.toObject()
   return resultsNoPassword as UserType

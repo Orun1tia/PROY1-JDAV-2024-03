@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import { verify } from "jsonwebtoken"
-import { UserType } from "../user/v1/models/user.model"
+import { UserType } from "../User/user.model"
 
 export function authorizationMiddleware(permissionField: keyof UserType, requireId: boolean = false) {
     return async (request: Request, response: Response, next: NextFunction) => {

@@ -1,4 +1,4 @@
-import { BookModel, BookType } from "../models/book.model"
+import { BookModel, BookType } from "./book.model"
 import { CreateBookType } from "../types"
 
 // DECLARE ACTION FUNCTION

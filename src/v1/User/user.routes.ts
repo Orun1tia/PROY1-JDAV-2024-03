@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express"
-import { deleteUser, login, signin, updateUser } from "../controllers/user.controller"
+import { deleteUser, login, signin, updateUser } from "../User/user.controller"
 import { CreateUserType } from "../types"
-import { authorizationMiddleware } from "../../../middleware/auth"
+import { authorizationMiddleware } from "../Middleware/auth"
 
 // INIT ROUTES
 const userRoutes = Router()

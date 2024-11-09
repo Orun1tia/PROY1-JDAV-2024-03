@@ -1,5 +1,5 @@
-import {loginAction, updateUserAction, signinAction, deleteUserAction} from "../actions/user.actions"
-import { UserType } from "../models/user.model"
+import {loginAction, updateUserAction, signinAction, deleteUserAction} from "../User/user.actions"
+import { UserType } from "./user.model"
 import { CreateUserType } from "../types"
 
 // DECLARE CONTROLLER FUNCTIONS
