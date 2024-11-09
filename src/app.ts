@@ -1,8 +1,8 @@
-import userRoutes from "./v1/routes/user.routes"
+import userRoutes from "./v1/User/user.routes"
 import express from "express"
 import { Request, Response } from "express"
 import cors from "cors"
-import bookRoutes from "./v1/routes/book.routes"
+import bookRoutes from "./v1/Book/book.routes"
 
 // ROUTES
 const SERVER_VERSION = "/api/v1/"

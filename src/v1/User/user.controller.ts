@@ -1,4 +1,4 @@
-import {loginAction, updateUserAction, signinAction, deleteUserAction} from "../User/user.actions"
+import {loginAction, updateUserAction, signinAction, deleteUserAction} from "./user.actions"
 import { UserType } from "./user.model"
 import { CreateUserType } from "../types"
 

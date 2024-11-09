@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import { UserModel, UserType } from "../User/user.model"
+import { UserModel, UserType } from "./user.model"
 import { CreateUserType } from "../types"
 import jwt from 'jsonwebtoken'
 import { BookModel } from '../Book/book.model';
